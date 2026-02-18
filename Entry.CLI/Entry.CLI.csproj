@@ -11,4 +11,14 @@
     <ProjectReference Include="..\MartianRobots\MartianRobots.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="TestInputs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestInputs\SampleInput.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

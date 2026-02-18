@@ -1,3 +1,14 @@
+## Overview
+Martian rover Kata variant for red badger interview
+
+## Prereqs
+- .NET 10 SDK
+
+## Running
+The main entry point is the CLI.
+Can be published if desired but for ease I recommend straight from source with `dotnet run -- <path to file containing input>`.
+give it a file containing input similar to the sample input and it will print the output to standard out.
+
 ## Planning
 
 > Note on spec.

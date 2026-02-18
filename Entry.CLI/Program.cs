@@ -18,9 +18,9 @@ var level = new Level(int.Parse(parts[0]), int.Parse(parts[1]));
 
 var output = new StringBuilder();
 
-for (int i = 1; i < input.Length; i += 3)
+for (int i = 1; i < input.Length; i += 2)
 {
-    var position = input[i].Split(" ");
+    var position = input[i].Split(" ", StringSplitOptions.RemoveEmptyEntries);
     var x = int.Parse(position[0]);
     var y = int.Parse(position[1]);
     var dir = position[2] switch

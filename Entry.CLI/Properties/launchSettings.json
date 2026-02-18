@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Entry.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "\"TestInputs/SampleInput.txt\""
+    }
+  }
+}
