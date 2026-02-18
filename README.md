@@ -26,4 +26,10 @@ give it a file containing input similar to the sample input and it will print th
 While implementing scent handling it seemed like it ended up being a registry anyway its just the level was the container as opposed to some new manager object. IMO this makes sense that the level knows which scents are present and where. Just odd now the level knows about scents but not the robots.
 
 
+## Further work
+The main thing im not super happy with is the commands still being a char array. I toyed with 2-3 ideas but ran out of time at ~2 hours and left it as is.
+
+- Move char to a `RobotCommand` enum but keep structure pretty much the same. This strong types available commands, removes primitive obsession.
+   - An expanstion of this here each command is a POCO. command resolution is down with pattern matching but the POCO allows a parse function to be added and parameterised commands if needed in the future
+- The big alternative was moving the mutation of the robot state itself to an `Execute` function on the commands EG the command design pattern. This adds the ability to add more commands more easily but my concern is the gain is temporary and long term quality degrades as the robot no longer controls its own state and capabilities (for example you cant lock down that a valid position if any class can make arbitrary updates to a robots XY coords as long as it has a reference). I dont believe the loss to encapsulation is worth it when it makes intuitive sense the robot class/file would change to support a new command anyway.
 
