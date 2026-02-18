@@ -4,9 +4,10 @@ namespace MartianRobots;
 
 public class Level
 {
-    private int _maxX;
-    private int _maxY;
-    private HashSet<(int, int)> _scents = new();
+    private readonly int _maxX;
+    private readonly int _maxY;
+    // This is a tuple of ints rather than a position as scents do not consider direction when they are created or checked
+    private readonly HashSet<(int, int)> _scents = new();
 
     public Level(int maxX, int maxY)
     {
@@ -14,20 +15,20 @@ public class Level
         _maxY = maxY;
     }
 
-    internal void AddScent(int xPosition, int yPosition)
+    internal void AddScent(Position position)
     {
-        _scents.Add((xPosition, yPosition));
+        _scents.Add((position.X, position.Y));
     }
 
-    internal bool HasScent(int xPosition, int yPosition)
+    internal bool HasScent(Position position)
     {
-        return _scents.Contains((xPosition, yPosition));
+        return _scents.Contains((position.X, position.Y));
     }
 
-    internal bool IsValidPosition(int posX, int posY)
+    internal bool IsValidPosition(Position position)
     {
-        return posX >= 0 && posX <= _maxX 
-            && posY >= 0 && posY <= _maxY;
+        return position.X >= 0 && position.X <= _maxX 
+            && position.Y >= 0 && position.Y <= _maxY;
     }
 
     public string RunRobot(int x, int y, Direction direction, string moves)
