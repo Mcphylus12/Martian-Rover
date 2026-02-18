@@ -32,7 +32,7 @@ for (int i = 1; i < input.Length; i += 3)
     };
 
     var commands = input[i + 1];
-    level.RunRobot(x, y, dir, commands);
+    output.AppendLine(level.RunRobot(x, y, dir, commands));
 }
 
 Console.Write(output.ToString());
