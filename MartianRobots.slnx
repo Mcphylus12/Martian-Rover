@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Coding_Challenge_2018.pdf" />
+    <File Path="README.md" />
+    <File Path="Test-Diagram.png" />
+  </Folder>
+  <Project Path="MartianRobots/MartianRobots.csproj" />
+  <Project Path="Tests/Tests.csproj" />
+</Solution>
