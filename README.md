@@ -10,3 +10,9 @@
 3. Implement Basic movement w/ tests. **Generic String to command handler**
 4. Implement LOST output and position validation
 5. Implement "Scent" behaviour w/ tests. In an attempt to make the implementation true to the concept of a "scent". I'll add it as a scent object in the "Level" as opposed to a "Command and Control" approach where last known positions are reigstered into some sort of containers of lost robots.
+
+
+While implementing scent handling it seemed like it ended up being a registry anyway its just the level was the container as opposed to some new manager object. IMO this makes sense that the level knows which scents are present and where. Just odd now the level knows about scents but not the robots.
+
+
+

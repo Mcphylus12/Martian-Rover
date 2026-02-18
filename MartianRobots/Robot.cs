@@ -18,11 +18,16 @@ public class Robot
         _xPosition = xPos;
         _yPosition = yPos;
         _direction = direction;
+
+        if (!_level.IsValidPosition(_xPosition, _yPosition))
+        {
+            // These could be immediately marked as lost but its not defined in the spec so im considering it an error
+            throw new Exception("Cannot create robots out of bounds");
+        }
     }
 
     /// <summary>
     /// Built on the assumption all commands including future unknown ones are a single char.
-    /// 
     /// </summary>
     public void Execute(char[] commands)
     {
@@ -79,7 +84,11 @@ public class Robot
 
         if (!_level.IsValidPosition(newPosX, newPosY))
         {
-            _isLost = true;
+            if (!_level.HasScent(_xPosition, _yPosition))
+            {
+                _isLost = true;
+                _level.AddScent(_xPosition, _yPosition);
+            }
         }
         else
         {
