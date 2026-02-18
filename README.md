@@ -8,4 +8,5 @@
 1. Implement tests based on sample input and output
 2. Implement CLI entry that takes a file in and writes to std out
 3. Implement Basic movement w/ tests. **Generic String to command handler**
-4. Implement "Scent" behaviour w/ tests. In an attempt to make the implementation true to the concept of a "scent". I'll add it as a scent object in the "Level" as opposed to a "Command and Control" approach where last known positions are reigstered into some sort of containers of lost robots.
+4. Implement LOST output and position validation
+5. Implement "Scent" behaviour w/ tests. In an attempt to make the implementation true to the concept of a "scent". I'll add it as a scent object in the "Level" as opposed to a "Command and Control" approach where last known positions are reigstered into some sort of containers of lost robots.

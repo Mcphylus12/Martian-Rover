@@ -23,14 +23,55 @@ public class Robot
     /// Built on the assumption all commands including future unknown ones are a single char.
     /// 
     /// </summary>
-    public void Execute(char[] chars)
+    public void Execute(char[] commands)
     {
-        throw new NotImplementedException();
+        foreach (var command in commands)
+        {
+            switch(command)
+            {
+                case 'F': MoveForward(); break;
+                case 'L': TurnLeft(); break;
+                case 'R': TurnRight(); break;
+            }
+        }
+    }
+
+    private void TurnLeft()
+    {
+        switch (_direction)
+        {
+            case Direction.North: _direction = Direction.West; break;
+            case Direction.West: _direction = Direction.South; break;
+            case Direction.South: _direction = Direction.East; break;
+            case Direction.East: _direction = Direction.North; break;
+        }
+    }
+
+    private void TurnRight()
+    {
+        switch (_direction)
+        {
+            case Direction.North: _direction = Direction.East; break;
+            case Direction.West: _direction = Direction.South; break;
+            case Direction.South: _direction = Direction.West; break;
+            case Direction.East: _direction = Direction.North; break;
+        }
+    }
+
+    private void MoveForward()
+    {
+        switch (_direction)
+        {
+            case Direction.North: _yPosition++; break;
+            case Direction.South: _yPosition--; break;
+            case Direction.West: _xPosition--; break;
+            case Direction.East: _xPosition++; break;
+        }
     }
 
     public string GetState()
     {
-        throw new NotImplementedException();
+        return $"{_xPosition} {_yPosition} {_direction.ToString()[0]}";
     }
 }
 
