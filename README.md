@@ -6,8 +6,11 @@ Martian rover Kata variant for red badger interview
 
 ## Running
 The main entry point is the CLI.
-Can be published if desired but for ease I recommend straight from source with `dotnet run -- <path to file containing input>`.
+Can be published if desired but for ease I recommend straight from source with `dotnet run --project Entry.CLI\Entry.CLI.csproj -- <path to input file>`.
 give it a file containing input similar to the sample input and it will print the output to standard out.
+
+also `dotnet test` will run all implemented tests.
+
 
 ## Planning
 
