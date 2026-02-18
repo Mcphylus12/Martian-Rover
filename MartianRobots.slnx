@@ -1,9 +1,13 @@
 <Solution>
   <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
     <File Path="Coding_Challenge_2018.pdf" />
     <File Path="README.md" />
     <File Path="Test-Diagram.png" />
   </Folder>
+  <Project Path="Entry.CLI/Entry.CLI.csproj" />
   <Project Path="MartianRobots/MartianRobots.csproj" />
   <Project Path="Tests/Tests.csproj" />
 </Solution>
