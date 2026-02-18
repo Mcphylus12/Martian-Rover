@@ -10,6 +10,7 @@ public class Robot
     private int _xPosition;
     private int _yPosition;
     private Direction _direction;
+    private bool _isLost;
 
     public Robot(Level level, int xPos, int yPos, Direction direction)
     {
@@ -27,6 +28,11 @@ public class Robot
     {
         foreach (var command in commands)
         {
+            if (_isLost)
+            {
+                return;
+            }
+
             switch(command)
             {
                 case 'F': MoveForward(); break;
@@ -52,27 +58,42 @@ public class Robot
         switch (_direction)
         {
             case Direction.North: _direction = Direction.East; break;
-            case Direction.West: _direction = Direction.South; break;
+            case Direction.West: _direction = Direction.North; break;
             case Direction.South: _direction = Direction.West; break;
-            case Direction.East: _direction = Direction.North; break;
+            case Direction.East: _direction = Direction.South; break;
         }
     }
 
     private void MoveForward()
     {
+        var newPosX = _xPosition;
+        var newPosY = _yPosition;
+
         switch (_direction)
         {
-            case Direction.North: _yPosition++; break;
-            case Direction.South: _yPosition--; break;
-            case Direction.West: _xPosition--; break;
-            case Direction.East: _xPosition++; break;
+            case Direction.North: newPosY++; break;
+            case Direction.South: newPosY--; break;
+            case Direction.West: newPosX--; break;
+            case Direction.East: newPosX++; break;
+        }
+
+        if (!_level.IsValidPosition(newPosX, newPosY))
+        {
+            _isLost = true;
+        }
+        else
+        {
+            _xPosition = newPosX;
+            _yPosition = newPosY;
         }
     }
 
     public string GetState()
     {
-        return $"{_xPosition} {_yPosition} {_direction.ToString()[0]}";
+        return $"{_xPosition} {_yPosition} {_direction.ToString()[0]}{GetLostString()}";
     }
+
+    private string GetLostString() => _isLost ? " LOST" : string.Empty;
 }
 
 public enum Direction
