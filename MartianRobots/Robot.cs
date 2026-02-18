@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿namespace MartianRobots;
 
-namespace MartianRobots;
-
-public class Robot
+internal class Robot
 {
-    private Level _level;
+    private readonly Level _level;
     private int _xPosition;
     private int _yPosition;
     private Direction _direction;

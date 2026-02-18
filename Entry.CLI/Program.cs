@@ -32,9 +32,7 @@ for (int i = 1; i < input.Length; i += 3)
     };
 
     var commands = input[i + 1];
-    var robot = new Robot(level, x, y, dir);
-    robot.Execute(commands.ToCharArray());
-    output.AppendLine(robot.GetState());
+    level.RunRobot(x, y, dir, commands);
 }
 
 Console.Write(output.ToString());

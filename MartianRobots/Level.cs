@@ -1,4 +1,6 @@
-﻿namespace MartianRobots;
+﻿using System.Reflection.Emit;
+
+namespace MartianRobots;
 
 public class Level
 {
@@ -26,5 +28,12 @@ public class Level
     {
         return posX >= 0 && posX <= _maxX 
             && posY >= 0 && posY <= _maxY;
+    }
+
+    public string RunRobot(int x, int y, Direction direction, string moves)
+    {
+        var robot = new Robot(this, x, y, direction);
+        robot.Execute(moves.ToCharArray());
+        return robot.GetState();
     }
 }
